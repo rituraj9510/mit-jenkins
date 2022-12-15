@@ -29,7 +29,7 @@ pipeline {
 	 stage('Deploy Production') {
       environment {
         ENVIRONMENT = 'Production'
-        APP_NAME = 'mit-jenkins-demo'
+        APP_NAME = 'mit-jenkins-demo-1'
       }
       steps {
             bat 'mvn -U -V -e -B -gs %M2SETTINGS% -DskipTests deploy -DmuleDeploy -Dmule.version="%MULE_VERSION%" -Danypoint.username="%DEPLOY_CREDS_USR%" -Danypoint.password="%DEPLOY_CREDS_PSW%" -Dcloudhub.app="%APP_NAME%" -Dcloudhub.environment="%ENVIRONMENT%" -Dcloudhub.bg="%BG%" -Dcloudhub.worker="%WORKER%" -Danypoint.platform.client_id="15b0b3ca6fe54463bb1d5d78088d94e3" -Danypoint.platform.client_secret="F7f8944b9aC24E728bA8E8169Cf67bB4"'
