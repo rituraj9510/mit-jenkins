@@ -27,11 +27,11 @@ pipeline {
     }
 	 stage('Deploy Production') {
       environment {
-        ENVIRONMENT = 'PROD'
+        ENVIRONMENT = 'Production'
         APP_NAME = 'mit-jenkins-demo-prod'
       }
       steps {
-            bat 'mvn -U -V -e -B -gs %M2SETTINGS% -DskipTests deploy -DmuleDeploy -Dmule.version="%MULE_VERSION%" -Danypoint.username="%DEPLOY_CREDS_USR%" -Danypoint.password="%DEPLOY_CREDS_PSW%" -Dcloudhub.app="%APP_NAME%" -Dcloudhub.environment="%ENVIRONMENT%" -Dcloudhub.bg="%BG%" -Dcloudhub.worker="%WORKER%" -Danypoint.platform.client_id="7893db88a3a14b6e959060013dd7c55e" -Danypoint.platform.client_secret="b1De26Cf58634860a02C0Cfc8ABC0F4e" '
+            bat 'mvn -U -V -e -B -gs %M2SETTINGS% -DskipTests deploy -DmuleDeploy -Dmule.version="%MULE_VERSION%" -Danypoint.username="%DEPLOY_CREDS_USR%" -Danypoint.password="%DEPLOY_CREDS_PSW%" -Dcloudhub.app="%APP_NAME%" -Dcloudhub.environment="%ENVIRONMENT%" -Dcloudhub.bg="%BG%" -Dcloudhub.worker="%WORKER%" -Danypoint.platform.client_id="99cb02cc1fa849049067160820144f39" -Danypoint.platform.client_secret="5382d9F42d534E0Aa65a445dB0391720" '
       }
     }
 
