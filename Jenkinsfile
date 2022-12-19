@@ -16,6 +16,15 @@ pipeline {
       }
     }
 
+	   stage('Deploy Development') {
+      environment {
+        ENVIRONMENT = 'Dev'
+        APP_NAME = 'mit-jenkins-demo'
+      }
+      steps {
+            bat 'mvn -U -V -e -B -gs %M2SETTINGS% -DskipTests deploy -DmuleDeploy -Dmule.version="%MULE_VERSION%" -Danypoint.username="%DEPLOY_CREDS_USR%" -Danypoint.password="%DEPLOY_CREDS_PSW%" -Dcloudhub.app="%APP_NAME%" -Dcloudhub.environment="%ENVIRONMENT%" -Dcloudhub.bg="%BG%" -Dcloudhub.worker="%WORKER%" -Danypoint.platform.client_id="b6038b7135fe481dba53385f72f00220" -Danypoint.platform.client_secret="674A4ccECb18417e99DC1c0dF346df4f" '
+      }
+    }
 	 stage('Deploy Production') {
       environment {
         ENVIRONMENT = 'PROD'
